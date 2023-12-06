@@ -1,0 +1,71 @@
+{
+  "name": "ericspark",
+  "private": true,
+  "description": "A personal website powered by Gatsby and Markdown",
+  "version": "0.1.0",
+  "author": "Eric Park <eric@ericspark.com>",
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.3.1",
+    "gatsby": "^2.32.13",
+    "gatsby-image": "^2.11.0",
+    "gatsby-plugin-feed": "^2.13.1",
+    "gatsby-plugin-google-analytics": "^5.12.0",
+    "gatsby-plugin-google-gtag": "^5.12.3",
+    "gatsby-plugin-manifest": "^2.12.1",
+    "gatsby-plugin-netlify": "^2.11.1",
+    "gatsby-plugin-offline": "^2.2.10",
+    "gatsby-plugin-postcss": "^2.3.13",
+    "gatsby-plugin-purgecss": "^3.1.1",
+    "gatsby-plugin-react-helmet": "^3.10.0",
+    "gatsby-plugin-sharp": "^2.14.4",
+    "gatsby-remark-copy-linked-files": "^2.10.0",
+    "gatsby-remark-images": "^2.0.6",
+    "gatsby-remark-prismjs": "^3.13.0",
+    "gatsby-remark-responsive-iframe": "^2.11.0",
+    "gatsby-remark-smartypants": "^2.10.0",
+    "gatsby-source-filesystem": "^2.11.1",
+    "gatsby-transformer-remark": "^2.16.1",
+    "gatsby-transformer-sharp": "^2.12.1",
+    "prismjs": "^1.29.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-helmet": "^5.2.1",
+    "typeface-alegreya": "^0.0.69",
+    "typeface-merriweather": "0.0.72",
+    "typeface-montserrat": "0.0.54",
+    "typeface-nunito": "^0.0.72",
+    "url-join": "^4.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.8",
+    "gh-pages": "^2.2.0",
+    "husky": "^2.7.0",
+    "postcss-color-function": "^4.1.0",
+    "postcss-custom-properties": "^8.0.11",
+    "postcss-easy-import": "^3.0.0",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^1.11.1"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "deploy": "gatsby build && gh-pages -d public -b master"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
