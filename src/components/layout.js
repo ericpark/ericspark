@@ -1,10 +1,11 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { Link } from "gatsby";
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
+    const { location, title, children } = this.props;
+
+    const rootPath = `${__PATH_PREFIX__}/`;
     return (
       <div className="site-wrapper">
         <header className="site-head">
@@ -23,14 +24,45 @@ class Layout extends React.Component {
             </Link>
             <nav id="swup" class="site-head-left">
               <ul className="nav" role="menu">
-                <li className="nav-home nav-current" role="menuitem">
-                  <Link to={`/`}>Home</Link>
+                <li
+                  className={
+                    location === "home" ? "nav-home nav-current" : "nav-home"
+                  }
+                  role="menuitem"
+                >
+                  <Link to={`/`} activeClassName={"nav-current"} replace={true}>
+                    Home
+                  </Link>
                 </li>
-                <li className="nav-about" role="menuitem">
-                  <Link to={`/about`}>About</Link>
+                <li
+                  className={
+                    location === "about" ? "nav-about nav-current" : "nav-about"
+                  }
+                  role="menuitem"
+                >
+                  <Link
+                    to={`/about`}
+                    activeClassName={"nav-current"}
+                    replace={true}
+                  >
+                    About
+                  </Link>
+                </li>
+                <li
+                  className={
+                    location === "tech" ? "nav-tech nav-current" : "nav-tech"
+                  }
+                  role="menuitem"
+                >
+                  <Link
+                    to={`/tech`}
+                    activeClassName={"nav-current"}
+                    replace={true}
+                  >
+                    Tech
+                  </Link>
                 </li>
                 <li className="nav-elements" role="menuitem">
-                  {/*<Link to={`/elements`}>Contact</Link>*/}
                   <a href="mailto:eric@ericspark.com">Contact</a>
                 </li>
               </ul>
@@ -87,8 +119,8 @@ class Layout extends React.Component {
           </a>
         </footer>
       </div>
-    )
+    );
   }
 }
 
-export default Layout
+export default Layout;

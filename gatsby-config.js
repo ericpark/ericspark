@@ -1,5 +1,5 @@
-const urljoin = require("url-join")
-const siteConfig = require("./siteConfig")
+const urljoin = require("url-join");
+const siteConfig = require("./siteConfig");
 
 module.exports = {
   siteMetadata: {
@@ -8,8 +8,8 @@ module.exports = {
     description: siteConfig.description,
     siteUrl: urljoin(siteConfig.url, siteConfig.prefix),
     social: {
-      twitter: siteConfig.twitter,
-    },
+      twitter: siteConfig.twitter
+    }
   },
   plugins: [
     {
@@ -17,7 +17,7 @@ module.exports = {
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
-          "G-TEYM9R02PH", // Google Analytics / GA
+          "G-TEYM9R02PH" // Google Analytics / GA
           //"AW-CONVERSION_ID", // Google Ads / Adwords / AW
           //"DC-FLOODIGHT_ID", // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
         ],
@@ -26,7 +26,7 @@ module.exports = {
         gtagConfig: {
           optimize_id: "OPT_CONTAINER_ID",
           anonymize_ip: false,
-          cookie_expires: 0,
+          cookie_expires: 0
         },
         // This object is used for configuration specific to this plugin
         pluginConfig: {
@@ -39,23 +39,23 @@ module.exports = {
           // Defaults to https://www.googletagmanager.com
           origin: "https://googletagmanager.com",
           // Delays processing pageview events on route update (in milliseconds)
-          delayOnRouteUpdate: 0,
-        },
-      },
+          delayOnRouteUpdate: 0
+        }
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
-        name: `blog`,
-      },
+        name: `blog`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/assets`,
-        name: `assets`,
-      },
+        name: `assets`
+      }
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -68,20 +68,20 @@ module.exports = {
               withWebp: true,
               showCaptions: true,
               quality: 75,
-              wrapperStyle: `margin: 7vw 0;`,
-            },
+              wrapperStyle: `margin: 7vw 0;`
+            }
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
+              wrapperStyle: `margin-bottom: 1.0725rem`
+            }
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
-        ],
-      },
+          `gatsby-remark-smartypants`
+        ]
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -92,22 +92,22 @@ module.exports = {
           require("postcss-easy-import")(),
           require("postcss-custom-properties")({ preserve: false }),
           require("postcss-color-function")(),
-          require("autoprefixer")(),
-        ],
-      },
+          require("autoprefixer")()
+        ]
+      }
     },
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
-        printRejected: true, // Print removed selectors and processed file names
+        printRejected: true // Print removed selectors and processed file names
         // develop: true, // Enable while using `gatsby develop`
         // tailwind: true, // Enable tailwindcss support
         // whitelist: ['whitelist'], // Don't remove this selector
         // ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
         // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
-      },
+      }
     },
-  /* {
+    /* {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: `G-TEYM9R02PH`,
@@ -121,13 +121,14 @@ module.exports = {
         short_name: siteConfig.shortName,
         start_url: siteConfig.prefix,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#3eb0ef`,
         display: `minimal-ui`,
-        icon: `content/assets/logo_square.png`,
-      },
+        icon: `content/assets/logo_square.png`
+      }
     },
     `gatsby-plugin-netlify`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-  ],
-}
+    `gatsby-plugin-material-ui`
+  ]
+};
