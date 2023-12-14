@@ -51,7 +51,7 @@ const TechPage = ({ data }, location) => {
             className="col-12"
             style={{ display: "flex", justifyContent: "center" }}
           >
-            <BounceLoader />
+            <BounceLoader color="#3eb0ef" />
           </div>
         )}
       </article>
@@ -163,15 +163,6 @@ const indexQuery = graphql`
     site {
       siteMetadata {
         title
-      }
-    }
-    benchAccounting: file(
-      relativePath: { eq: "bench-accounting-49909-unsplash.jpg" }
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 1360) {
-          ...GatsbyImageSharpFluid
-        }
       }
     }
   }
