@@ -129,6 +129,21 @@ module.exports = {
     `gatsby-plugin-netlify`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-material-ui`
+    `gatsby-plugin-material-ui`,
+    {
+      resolve: "gatsby-plugin-firebase",
+      options: {
+        credentials: {
+          apiKey: "***REMOVED***",
+          authDomain: "***REMOVED***",
+          databaseURL: "***REMOVED***",
+          projectId: "***REMOVED***",
+          storageBucket: "***REMOVED***.appspot.com",
+          messagingSenderId: "***REMOVED***",
+          appId: "***REMOVED***",
+          measurementId: "G-TEYM9R02PH"
+        }
+      }
+    }
   ]
 };

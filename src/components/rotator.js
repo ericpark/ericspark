@@ -1,64 +1,64 @@
-import React, { Component } from "react"
-import Slider from "./slider"
+import React, { Component } from "react";
+import Slider from "./slider";
 //import Link from "gatsby-link"
 
 class Rotator extends Component {
   state = {
     shouldAnimate: true,
     item: 0,
-    size: {},
-  }
-  sliderContainer = React.createRef()
-  intervalId = null
+    size: {}
+  };
+  sliderContainer = React.createRef();
+  intervalId = null;
 
   _clearInterval() {
     if (this.intervalId) {
-      clearInterval(this.intervalId)
-      this.intervalId = null
+      clearInterval(this.intervalId);
+      this.intervalId = null;
     }
   }
 
   decrementItem = () => {
-    this._clearInterval()
+    this._clearInterval();
     this.setState({
       item:
         (this.state.item + this.props.items.length - 1) %
-        this.props.items.length,
-    })
-  }
+        this.props.items.length
+    });
+  };
 
   incrementItemAndClearInterval = () => {
-    this._clearInterval()
-    this.incrementItem()
-  }
+    this._clearInterval();
+    this.incrementItem();
+  };
 
   incrementItem = () => {
     this.setState(state => {
       return {
-        item: (state.item + 1) % this.props.items.length,
-      }
-    })
-  }
+        item: (state.item + 1) % this.props.items.length
+      };
+    });
+  };
 
   componentDidMount() {
-    const shouldAnimate = this.shouldAnimate()
+    const shouldAnimate = this.shouldAnimate();
     if (shouldAnimate) {
       requestAnimationFrame(() => {
-        this.intervalId = setInterval(this.incrementItem, 5000)
-        this.setState({ shouldAnimate, size: this.getDimensions() })
-      })
+        this.intervalId = setInterval(this.incrementItem, 5000);
+        this.setState({ shouldAnimate, size: this.getDimensions() });
+      });
     }
   }
 
   componentWillUnmount() {
-    clearInterval(this.intervalId)
+    clearInterval(this.intervalId);
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.shouldAnimate && prevState.item !== this.state.item) {
       requestAnimationFrame(() => {
-        this.setState({ size: this.getDimensions() })
-      })
+        this.setState({ size: this.getDimensions() });
+      });
     }
   }
 
@@ -66,29 +66,31 @@ class Rotator extends Component {
     if (this.sliderContainer.current === null) {
       return {
         width: `auto`,
-        height: `auto`,
-      }
+        height: `auto`
+      };
     }
 
-    return this.sliderContainer.current.getBoundingClientRect()
+    return this.sliderContainer.current.getBoundingClientRect();
   }
 
   shouldAnimate() {
-    const mediaQuery = window.matchMedia(`(prefers-reduced-motion)`)
-    return !mediaQuery || !mediaQuery.matches
+    const mediaQuery = window.matchMedia(`(prefers-reduced-motion)`);
+    return !mediaQuery || !mediaQuery.matches;
   }
 
   render() {
-    const { shouldAnimate } = this.state
-    const { text, workName } = this.props.items[this.state.item]
-    const enableSlider = shouldAnimate && this.intervalId
+    const { shouldAnimate } = this.state;
+    // removed workName for now
+    const { text } = this.props.items[this.state.item];
+    const enableSlider = shouldAnimate && this.intervalId;
     return (
       <div
         style={{
-          padding: '0rem 0 5rem',
-          margin: '0rem 0 4rem',
-          position: 'center',
-        }}>
+          padding: "0rem 0 5rem",
+          margin: "0rem 0 4rem",
+          position: "center"
+        }}
+      >
         <div
           aria-live={this.intervalId ? `off` : `polite`}
           aria-atomic="true"
@@ -107,27 +109,23 @@ class Rotator extends Component {
               style={{
                 display: `inline-block`,
                 transition: shouldAnimate ? `width 150ms easeIn` : `none`,
-                width: this.state.size.width || `auto`,
+                width: this.state.size.width || `auto`
               }}
             >
               <span
                 style={{
                   fontWeight: 600,
                   whiteSpace: `nowrap`,
-                  display: `inline-block`,
+                  display: `inline-block`
                 }}
                 id="headline-slider"
                 ref={this.sliderContainer}
               >
-                {!enableSlider ? (
-                  <>{text}</>
-                ) : (
-                  <Slider items={[text]} />
-                )}
+                {!enableSlider ? <>{text}</> : <Slider items={[text]} />}
               </span>
             </span>
           </p>
-        {/** Can remove comment if it links somewhere later on 
+          {/** Can remove comment if it links somewhere later on 
         *<p
             style={{
               color: 'black',
@@ -140,8 +138,8 @@ class Rotator extends Component {
           </p>*/}
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Rotator
+export default Rotator;

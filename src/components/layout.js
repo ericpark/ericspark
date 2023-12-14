@@ -5,7 +5,7 @@ class Layout extends React.Component {
   render() {
     const { location, title, children } = this.props;
 
-    const rootPath = `${__PATH_PREFIX__}/`;
+    //const rootPath = `${__PATH_PREFIX__}/`;
     return (
       <div className="site-wrapper">
         <header className="site-head">
@@ -22,50 +22,74 @@ class Layout extends React.Component {
                 </div>
               </div>
             </Link>
-            <nav id="swup" class="site-head-left">
-              <ul className="nav" role="menu">
-                <li
-                  className={
-                    location === "home" ? "nav-home nav-current" : "nav-home"
-                  }
-                  role="menuitem"
-                >
-                  <Link to={`/`} activeClassName={"nav-current"} replace={true}>
-                    Home
-                  </Link>
-                </li>
-                <li
-                  className={
-                    location === "about" ? "nav-about nav-current" : "nav-about"
-                  }
-                  role="menuitem"
-                >
-                  <Link
-                    to={`/about`}
-                    activeClassName={"nav-current"}
-                    replace={true}
-                  >
-                    About
-                  </Link>
-                </li>
-                <li
-                  className={
-                    location === "tech" ? "nav-tech nav-current" : "nav-tech"
-                  }
-                  role="menuitem"
-                >
-                  <Link
-                    to={`/tech`}
-                    activeClassName={"nav-current"}
-                    replace={true}
-                  >
-                    Tech
-                  </Link>
-                </li>
-                <li className="nav-elements" role="menuitem">
-                  <a href="mailto:eric@ericspark.com">Contact</a>
-                </li>
-              </ul>
+            <nav>
+              <div id="swup" className="site-head-left">
+                <ul>
+                  {" "}
+                  <div className="nav" role="menu">
+                    <li>
+                      <div
+                        className={
+                          location === "home"
+                            ? "nav-home nav-current"
+                            : "nav-home"
+                        }
+                        role="menuitem"
+                      >
+                        <Link
+                          to={`/`}
+                          activeClassName={"nav-current"}
+                          replace={true}
+                        >
+                          Home
+                        </Link>
+                      </div>
+                    </li>
+                    <li>
+                      <div
+                        className={
+                          location === "about"
+                            ? "nav-about nav-current"
+                            : "nav-about"
+                        }
+                        role="menuitem"
+                      >
+                        <Link
+                          to={`/about`}
+                          activeClassName={"nav-current"}
+                          replace={true}
+                        >
+                          About
+                        </Link>
+                      </div>
+                    </li>
+                    <li>
+                      <div
+                        className={
+                          location === "tech"
+                            ? "nav-tech nav-current"
+                            : "nav-tech"
+                        }
+                        role="menuitem"
+                      >
+                        <Link
+                          to={`/tech`}
+                          activeClassName={"nav-current"}
+                          replace={true}
+                        >
+                          Tech
+                        </Link>
+                      </div>
+                    </li>
+                    <li>
+                      {" "}
+                      <div className="nav-elements" role="menuitem">
+                        <a href="mailto:eric@ericspark.com">Contact</a>
+                      </div>
+                    </li>
+                  </div>
+                </ul>
+              </div>
             </nav>
             <div className="site-head-center">
               <Link className="site-head-logo" to={`/`}>
@@ -91,7 +115,7 @@ class Layout extends React.Component {
                   Linkedin
                 </a>
                 <a
-                  href="https://www.instagram.com/avgazn/"
+                  href="https://www.instagram.com/meeko_the_auss/"
                   title="Instagram"
                   target="_blank"
                   rel="noopener noreferrer"

@@ -4,7 +4,7 @@ import { graphql, StaticQuery } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import PostCard from "../components/postCard";
-import TagSelector from "../components/tagSelector";
+//import TagSelector from "../components/tagSelector";
 import Bio from "../components/bio";
 import Img from "gatsby-image";
 
