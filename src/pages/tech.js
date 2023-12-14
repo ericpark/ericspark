@@ -149,7 +149,6 @@ async function getSkills() {
   const skillsSnapshot = await getDoc(skillsDoc);
 
   if (skillsSnapshot.exists()) {
-    console.log(skillsSnapshot.data());
     return skillsSnapshot.data();
   } else {
     console.log("No such document!");
