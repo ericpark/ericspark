@@ -24,12 +24,12 @@ export default props => (
     </Link>
 
     <div className="post-card-tag-content">
-      <PostCardTags tags={props.tags} selectedTags={props.selectedTags} />
+      <TagCardTags tags={props.tags} selectedTags={props.selectedTags} />
     </div>
   </article>
 );
 
-const PostCardTags = ({ tags, selectedTags }) => {
+const TagCardTags = ({ tags, selectedTags }) => {
   if (!tags) {
     return <></>;
   }
@@ -38,15 +38,13 @@ const PostCardTags = ({ tags, selectedTags }) => {
       <div className="post-card-tags">
         {tags.map((tag, index) => {
           const selected = selectedTags.includes(tag);
+          const className = selected ? "tag-pill-selected" : "tag-pill";
           return (
-            <Link className="noselect  tag-pill-link">
-              <div
-                key={index}
-                className={`tag-pill${selected ? "-selected" : ""}`}
-              >
+            <div key={`${tag}${index}`} className="tag-pill-link">
+              <div key={index} className={className}>
                 {tag}
               </div>
-            </Link>
+            </div>
           );
         })}
       </div>
@@ -54,6 +52,6 @@ const PostCardTags = ({ tags, selectedTags }) => {
   );
 };
 
-PostCardTags.propTypes = {
+TagCardTags.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.string).isRequired
 };

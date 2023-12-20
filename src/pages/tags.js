@@ -77,8 +77,12 @@ const TagsPage = ({ data, location }) => {
                 setData([]);
                 setQuery("");
               }}
+              role="button"
+              tabIndex={0} //For tabbing
+              onKeyDown={e => (e.key === "Enter" ? setData([]) : "")}
             >
-              <MdClear />
+              {" "}
+              <MdClear />{" "}
             </div>
           </div>
 
@@ -99,9 +103,10 @@ const TagsPage = ({ data, location }) => {
                   return (
                     //Link doesn't work without a path
                     <div
+                      key={tag}
                       role="button"
                       onClick={() => toggleTagState(tag)}
-                      className="noselect tag-pill-link"
+                      className="tag-pill-link"
                       tabIndex={0} //For tabbing
                       onKeyDown={e =>
                         e.key === "Enter" ? toggleTagState(tag) : ""
@@ -172,8 +177,8 @@ function ResultsList({ results, toggleTagState }) {
     <div
       style={{ position: "relative", top: "0", right: "10.5em", zIndex: "70" }}
     >
-      <table>
-        <div style={{ position: "absolute", zIndex: "80" }}>
+      <div style={{ position: "absolute", zIndex: "80" }}>
+        <table>
           <tbody>
             {results.map(tag => (
               <tr key={tag}>
@@ -205,8 +210,8 @@ function ResultsList({ results, toggleTagState }) {
               </tr>
             ))}
           </tbody>
-        </div>
-      </table>
+        </table>
+      </div>
     </div>
   );
 }
@@ -228,7 +233,8 @@ function parseURLTags(location) {
   if (!location.search) {
     return [];
   }
-  const urlString = location.search.substring(1);
+  const urlString = decodeURI(location.search.substring(1));
+  console.log(urlString);
   if (urlString.includes("+")) {
     return urlString.split("+");
   }

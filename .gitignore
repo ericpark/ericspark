@@ -65,3 +65,4 @@ package-lock.json
 .parcel-cache
 
 .env
+bash.txt
