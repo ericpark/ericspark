@@ -3,6 +3,7 @@ title: Ericspark
 date: "2019-06-11"
 thumbnail: ./ericspark.png
 description: Behind the Personal portfolio website
+tags: [Gatsby, React, GraphQL, Firebase, Firestore, Google Analytics, Github]
 ---
 
 ### Portfolio website developed using GatsbyJS and ReactJS.

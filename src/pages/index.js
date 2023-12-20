@@ -14,6 +14,7 @@ import "../utils/css/screen.css";
 const BlogIndex = ({ data }, location) => {
   const siteTitle = data.site.siteMetadata.title;
   const posts = data.allMarkdownRemark.edges;
+
   let postCounter = 0;
 
   return (
@@ -51,6 +52,7 @@ const BlogIndex = ({ data }, location) => {
               key={node.fields.slug}
               count={postCounter}
               node={node}
+              tags={node.frontmatter.tags}
               postClass={`post`}
             />
           );
@@ -103,6 +105,7 @@ const indexQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            tags
             thumbnail {
               childImageSharp {
                 fluid(maxWidth: 1360) {

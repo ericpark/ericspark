@@ -5,7 +5,7 @@ class Layout extends React.Component {
   render() {
     const { location, title, children } = this.props;
 
-    //const rootPath = `${__PATH_PREFIX__}/`;
+    const rootPath = `${__PATH_PREFIX__}/`;
     return (
       <div className="site-wrapper">
         <header className="site-head">
@@ -22,7 +22,7 @@ class Layout extends React.Component {
                 </div>
               </div>
             </Link>
-            <nav>
+            <nav id="navigation">
               <div id="swup" className="site-head-left">
                 <ul>
                   {" "}
@@ -78,6 +78,24 @@ class Layout extends React.Component {
                           replace={true}
                         >
                           Tech
+                        </Link>
+                      </div>
+                    </li>
+                    <li>
+                      <div
+                        className={
+                          location === "tags"
+                            ? "nav-tech nav-current"
+                            : "nav-tech"
+                        }
+                        role="menuitem"
+                      >
+                        <Link
+                          to={`/tags`}
+                          activeClassName={"nav-current"}
+                          replace={true}
+                        >
+                          Tags
                         </Link>
                       </div>
                     </li>
