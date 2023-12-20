@@ -36,7 +36,11 @@ const PostCardTags = ({ tags }) => {
     <div className="post-card-tags-container">
       <div className="post-card-tags">
         {tags.map((tag, index) => (
-          <Link to={`/tags?${tag}`} className="tag-pill-link">
+          <Link
+            key={`${tag}${index}`}
+            to={`/tags?${tag}`}
+            className="tag-pill-link"
+          >
             <div key={index} className="tag-pill">
               {tag}
             </div>

@@ -5,7 +5,7 @@ class Layout extends React.Component {
   render() {
     const { location, title, children } = this.props;
 
-    const rootPath = `${__PATH_PREFIX__}/`;
+    //const rootPath = `${__PATH_PREFIX__}/`;
     return (
       <div className="site-wrapper">
         <header className="site-head">

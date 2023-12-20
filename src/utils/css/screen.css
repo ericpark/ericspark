@@ -533,6 +533,19 @@ body {
   font-size: 0.8em;
   display: inline-block;
   text-wrap: nowrap;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
 /*.tag-pill-link:not(:hover) .tag-pill {
@@ -835,7 +848,7 @@ body {
 }
 
 .tag-pill-link .tag-pill-selected {
-  background-color: green;
+  background-color: #008000;
   color: var(--color-bg);
   border-radius: 20px;
   padding: 0px 8px;
@@ -844,14 +857,46 @@ body {
   margin-bottom: 4px;
   font-size: 0.8em;
   display: inline-block;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.tag-pill-selected {
+  background-color: #008000;
+  color: var(--color-bg);
+  border-radius: 20px;
+  padding: 0px 8px;
+  margin-left: 4px;
+  margin-right: 0px;
+  margin-bottom: 4px;
+  font-size: 0.8em;
+  display: inline-block;
+  text-wrap: nowrap;
 }
 
 .noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
