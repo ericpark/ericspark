@@ -4,9 +4,10 @@ import PropTypes from "prop-types";
 
 export default props => (
   <article
-    className={`post-card ${props.count % 3 === 0 && `post-card-large`} ${
-      props.postClass
-    } ${props.node.frontmatter.thumbnail ? `with-image` : `no-image`}`}
+    className={`post-card-horizontal ${props.count % 3 === 0 &&
+      `post-card-large`} ${props.postClass} ${
+      props.node.frontmatter.thumbnail ? `with-image` : `no-image`
+    }`}
     style={
       props.node.frontmatter.thumbnail && {
         backgroundImage: `url(${props.node.frontmatter.thumbnail.childImageSharp.fluid.src})`,
@@ -23,25 +24,31 @@ export default props => (
     </Link>
 
     <div className="post-card-tag-content">
-      <PostCardTags tags={props.tags} />
+      <PostCardTags tags={props.tags} selectedTags={props.selectedTags} />
     </div>
   </article>
 );
 
-const PostCardTags = ({ tags }) => {
+const PostCardTags = ({ tags, selectedTags }) => {
   if (!tags) {
     return <></>;
   }
   return (
     <div className="post-card-tags-container">
       <div className="post-card-tags">
-        {tags.map((tag, index) => (
-          <Link to={`/tags?${tag}`} className="tag-pill-link">
-            <div key={index} className="tag-pill">
-              {tag}
-            </div>
-          </Link>
-        ))}
+        {tags.map((tag, index) => {
+          const selected = selectedTags.includes(tag);
+          return (
+            <Link className="noselect  tag-pill-link">
+              <div
+                key={index}
+                className={`tag-pill${selected ? "-selected" : ""}`}
+              >
+                {tag}
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

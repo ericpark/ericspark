@@ -54,6 +54,7 @@ body {
   padding: 3vw;
   min-height: 100vh;
 }
+
 @media (max-width: 850px) {
   .site-wrapper {
     padding: 6vw;
@@ -70,11 +71,13 @@ body {
   margin: auto;
   text-align: center;
 }
+
 @media (max-width: 700px) {
   .page-head {
     padding: 60vw 0;
   }
 }
+
 .error-head {
   height: 75vh;
 }
@@ -105,6 +108,7 @@ body {
   font-size: 2.8rem;
   color: var(--color-base);
 }
+
 @media (max-width: 700px) {
   .page-head-title {
     font-size: 1.8rem;
@@ -116,6 +120,7 @@ body {
   font-size: 1.8rem;
   line-height: 1.35em;
 }
+
 @media (max-width: 700px) {
   .page-head-description {
     font-size: 1.2rem;
@@ -277,9 +282,11 @@ body {
   .site-head {
     padding: 0;
   }
+
   .nav-burger {
     display: block;
   }
+
   .site-head-container {
     flex-direction: column;
     justify-content: flex-start;
@@ -289,6 +296,7 @@ body {
     transition: all 0.4s ease-out;
     overflow: hidden;
   }
+
   .site-head-left,
   .site-head-right {
     position: relative;
@@ -297,6 +305,7 @@ body {
     transition: height 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
     transition-delay: 1s;
   }
+
   .site-head-left a,
   .site-head-right a {
     margin: 8px 0;
@@ -309,11 +318,13 @@ body {
       opacity 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
     transform: scale(1.1) translateY(-25px);
   }
+
   .site-head-right a {
     padding: 5px 0;
     margin: 1px 0;
     font-size: 2rem;
   }
+
   .nav {
     width: 100%;
     flex-direction: column;
@@ -321,11 +332,13 @@ body {
     align-items: flex-start;
     margin: 3vw 0 0 0;
   }
+
   .site-head-left {
     order: 2;
     margin: 0;
     width: 100%;
   }
+
   .site-head-center {
     order: 1;
     position: static;
@@ -333,11 +346,13 @@ body {
     display: flex;
     justify-content: center;
   }
+
   .site-head-right {
     order: 3;
     width: 100%;
     margin-top: 3vw;
   }
+
   .social-links {
     flex-direction: column;
     align-items: flex-start;
@@ -370,12 +385,15 @@ body {
       opacity 0.9s cubic-bezier(0.4, 0.01, 0.165, 0.99);
     transform: scale(1) translateY(0px);
   }
+
   .site-head-open .nav-current a {
     border-bottom: var(--color-base) 2px solid;
   }
+
   .site-head-open .site-head-right a {
     opacity: 0.5;
   }
+
   .site-head-open .site-foot {
     display: block;
     position: fixed;
@@ -401,6 +419,18 @@ body {
   display: flex;
   position: relative;
   height: 35vw;
+  background: linear-gradient(135deg, #1f1f1f 0%, #111 100%) center center;
+  background-size: cover;
+  overflow: hidden;
+  counter-increment: posts;
+}
+
+.post-card-horizontal {
+  position: relative;
+  flex: 1 1 100%;
+  display: flex;
+  position: relative;
+  height: 15vw;
   background: linear-gradient(135deg, #1f1f1f 0%, #111 100%) center center;
   background-size: cover;
   overflow: hidden;
@@ -434,7 +464,7 @@ body {
   bottom: 0;
   left: 0;
   color: #fff;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.2);
   opacity: 1;
   transition: opacity 0.5s cubic-bezier(0.33, 0, 0.2, 1);
 }
@@ -442,6 +472,7 @@ body {
 .post-card.with-image .post-card-content {
   opacity: 0;
 }
+
 @media (max-width: 700px) {
   .post-card.with-image .post-card-content {
     opacity: 1;
@@ -450,6 +481,74 @@ body {
 
 .post-card-link:hover .post-card-content {
   opacity: 1;
+  transition: opacity 0.3s cubic-bezier(0.33, 0, 0.2, 1);
+}
+
+.post-card-tag-content {
+  flex: 1 1 auto;
+  width: 100%;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  opacity: 1;
+  transition: opacity 0.5s cubic-bezier(0.33, 0, 0.2, 1);
+}
+
+/*Make tags opacity 0.2 when hovering over main image.*/
+.post-card-link:hover + .post-card-tag-content {
+  opacity: 0.25;
+  transition: opacity 0.3s cubic-bezier(0.33, 0, 0.2, 1);
+}
+
+.post-card-tags-container {
+  margin: 2px 0px 2px 0px;
+  padding: 2px 2px 2px 0px;
+}
+
+.post-card-tags {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+}
+
+.post-card-tags::-webkit-scrollbar {
+  height: 5px;
+}
+
+.post-card-tags::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.15);
+
+  border-radius: 10px;
+}
+
+.tag-pill {
+  background-color: var(--color-bg);
+  color: var(--color-base);
+  border-radius: 20px;
+  padding: 0px 8px;
+  margin-left: 4px;
+  margin-right: 0px;
+  margin-bottom: 4px;
+  font-size: 0.8em;
+  display: inline-block;
+  text-wrap: nowrap;
+}
+
+/*.tag-pill-link:not(:hover) .tag-pill {
+  opacity: 0.8;
+  border-color: #ddd;
+  border: #ddd;
+  border-style: solid;
+  border-width: 1px;
+  transition: opacity 0.3s cubic-bezier(0.33, 0, 0.2, 1);
+}*/
+
+.tag-pill-link:hover .tag-pill {
+  opacity: 1;
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+
   transition: opacity 0.3s cubic-bezier(0.33, 0, 0.2, 1);
 }
 
@@ -497,6 +596,7 @@ body {
     font-size: 3.4rem;
   }
 }
+
 @media (max-width: 700px) {
   .post-card.no-image:before {
     font-size: 50vw;
@@ -532,6 +632,7 @@ body {
   text-align: center;
   opacity: 0.5;
 }
+
 @media (max-width: 500px) {
   .post-content-excerpt {
     font-size: 1.8rem;
@@ -552,6 +653,7 @@ body {
   font-size: 1.9rem;
   line-height: 1.65em;
 }
+
 @media (max-width: 500px) {
   .post-content-body {
     font-size: 1.7rem;
@@ -718,4 +820,38 @@ body {
 .page-template .post-content-body h2,
 .page-template .post-content-body h3 {
   text-align: center;
+}
+
+/* Tags Page
+/* ---------------------------------------------------------- */
+
+.tags-selector {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 0 0 auto;
+  justify-content: center;
+  padding: 1em 1em 1em 1em;
+}
+
+.tag-pill-link .tag-pill-selected {
+  background-color: green;
+  color: var(--color-bg);
+  border-radius: 20px;
+  padding: 0px 8px;
+  margin-left: 4px;
+  margin-right: 0px;
+  margin-bottom: 4px;
+  font-size: 0.8em;
+  display: inline-block;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }

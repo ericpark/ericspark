@@ -3,6 +3,18 @@ title: SquadLog
 date: "2019-06-01"
 thumbnail: ./squadlog.png
 description: For those who always are "starting for real on Monday"
+tags:
+  [
+    Flutter,
+    Firebase,
+    Firestore,
+    Realtime Database,
+    Cloud Functions,
+    Cloud Messaging,
+    BLoC,
+    iOS,
+    Android,
+  ]
 ---
 
 ### iOS and Android apps developed using Flutter.

@@ -6,6 +6,9 @@
 :root {
   /* Colours */
   --color-primary: #3eb0ef;
+  --color-primary-light: #77cdfb;
+  --color-primary-dark: #00a2fa;
+  --color-secondary-dark: #004a71;
   --color-base: #131313;
   --color-border: #ddd;
   --color-bg: #f8f8f8;

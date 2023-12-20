@@ -1,6 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import Chip from "@mui/material/Chip";
+//import Chip from "@mui/material/Chip";
 function TagSelector() {
   const handleClick = () => {
     console.info("You clicked the Chip.");

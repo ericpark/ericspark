@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, StaticQuery } from "gatsby";
 import firebase from "gatsby-plugin-firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -19,6 +19,8 @@ import * as GrReactIcons from "react-icons/gr";
 
 import "../utils/normalize.css";
 import "../utils/css/screen.css";
+
+const firestore = getFirestore(firebase);
 
 const TechPage = ({ data }, location) => {
   const siteTitle = data.site.siteMetadata.title;
@@ -62,9 +64,7 @@ const TechPage = ({ data }, location) => {
 function TechSkillBlock({ sectionTitle, skills }) {
   return (
     <div>
-      <h2 id="clean-minimal-and-deeply-customisable-london-is-a-theme-made-for-people-who-appreciate-simple-lines-">
-        {sectionTitle}
-      </h2>
+      <h2 id={sectionTitle.split(" ")[0].toLowerCase()}>{sectionTitle}</h2>
       {skills.map((row, index) => (
         <TechSkillRow
           key={`${index}_${row.name}`}
@@ -144,10 +144,10 @@ function Stars({ rating }) {
 }
 
 async function getSkills() {
-  const skillsDoc = doc(firebase, "pages", "tech");
+  const skillsDoc = doc(firestore, "pages", "tech");
+  console.log(skillsDoc);
 
   const skillsSnapshot = await getDoc(skillsDoc);
-
   if (skillsSnapshot.exists()) {
     return skillsSnapshot.data();
   } else {
